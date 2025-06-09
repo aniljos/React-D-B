@@ -1,0 +1,31 @@
+React session June 2025
+
+
+
+Git Url: https://github.com/aniljos/React-Lnw
+REST API Mock: https://github.com/aniljos/REST-API-Mock
+Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
+
+
+
+Introduction: https://forms.gle/e45YjdSzvZf1ifvV9
+
+JavaScript
+	- Interpreted: No compilation
+	- Dynamic - static typing
+	- OOPs - Not class oriented
+	- Versions 
+	
+Framework
+	- Support for the latest versions and features of React
+	- Server-side rendering(SSR) and SEO features
+	- Stability & Optimized
+	
+Vite Project Files
+	- package.json - npm configuration file
+	- tsconfig.json - typescript compiler config
+	- vite.config - Vite config
+	
+	- index.html - single page
+	- main.tsx - entry point script
+	- App.tsx - Root Component(Main) 
