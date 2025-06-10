@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 type MessageProps = {
 
     text: string;
@@ -8,6 +10,17 @@ type MessageProps = {
 function Message(props: MessageProps) {
 
     console.log("Message props", props);
+
+    useEffect(() => {
+
+        console.log("Message component mounted");
+
+        //clean-up (unmount)
+        return () => {
+            console.log("Message component unmounting");
+        }
+    }, []);
+
     return (
         <>
             <div style={{color: props.color}}>

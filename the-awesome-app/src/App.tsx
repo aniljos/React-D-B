@@ -11,7 +11,7 @@ function App() {
       <Message text="Vite" color="red"/> */}
 
       <Counter initialValue={5} />
-      <Counter initialValue={10} />
+      {/* <Counter initialValue={10} /> */}
       
     </div>
   )

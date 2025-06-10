@@ -44,6 +44,7 @@ JSX
 	- JSX is JS expressions
 		- const jsx = (<p> Hello </p>)
 	- <> </> = React Fragment(typically used for a root element in JSX)
+	- Conditional rendering: use the ternary operator
 	
 props
 	- The component author defines the props to the component.
@@ -52,3 +53,39 @@ props
 	- Changes to props will re-render the component.
 	- props is always read-only in the child component
 	
+state
+   - useState
+   - state must be treated as immutable
+   - state changes will a re-render
+   - state change is asynchronous.
+   - setState overloads
+		- setState(nextValue)
+		- setState(callback)=> (prevValue => nextValue)
+   - state changes are batched
+         - counter = 5
+		 - setCounter(counter + 1); => batch => setCounter(6) => batch invoked => counter - 6  
+         - setCounter(counter + 1); => batch => setCounter(6) => batch invoked => counter - 6 
+		 
+		 - setCounter(prevCounter => prevCounter + 1); 
+				=> batch => setCounter(invoke the callback)= batch invoked => counter - pCounter + 1 =6
+         - setCounter(prevCounter => prevCounter + 1);   
+				=> batch => setCounter(invoke the callback)= batch invoked => counter - pCounter + 1 =7
+	
+useEffect(effects)
+	- implements side-effects(async operations) in a component
+	- useEffect(setUp, [list of dependencies]);
+	- mounted(after its mounted on the UI)
+		- useEffect(setUp, [empty dependency array]);
+		- api calls to the server(executed only once)
+		- DOM initializations
+		- Add listeners to events on the window or document and DOM objects
+		- mount happens after the first rendered
+	- unmount(before unmounted)
+		- cleanup method of the mount effects
+		- cancel the incompleted api calls
+		- Remove listeners to events on the window or document and DOM objects
+		- Any cleanup code
+	
+	
+
+   
