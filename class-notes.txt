@@ -29,3 +29,26 @@ Vite Project Files
 	- index.html - single page
 	- main.tsx - entry point script
 	- App.tsx - Root Component(Main) 
+	
+Command
+	npm create vite ==> npx create-vite
+	
+	npm - install, uninstall, list, create
+	npx - run a tool(without install the tool)
+	
+	
+JSX
+	- Everything is a component(div, p etc)
+	- HTML elements are components referred to as instrinsic components(start with a lowe case)
+	- User-defined components must start with an upper-case.
+	- JSX is JS expressions
+		- const jsx = (<p> Hello </p>)
+	- <> </> = React Fragment(typically used for a root element in JSX)
+	
+props
+	- The component author defines the props to the component.
+	- props is always an object
+	- props is used to pass data from a parent to a child component and vice-verse
+	- Changes to props will re-render the component.
+	- props is always read-only in the child component
+	
