@@ -36,6 +36,12 @@ Command
 	npm - install, uninstall, list, create
 	npx - run a tool(without install the tool)
 	
+Components
+	- functional(recommended)
+	- class
+	
+	- client-side rendering(CSR)
+	- server-side rendering(SSR) - from React 18: optimizations, SEO
 	
 JSX
 	- Everything is a component(div, p etc)
@@ -85,6 +91,8 @@ useEffect(effects)
 		- cancel the incompleted api calls
 		- Remove listeners to events on the window or document and DOM objects
 		- Any cleanup code
+		
+
 	
 	
 

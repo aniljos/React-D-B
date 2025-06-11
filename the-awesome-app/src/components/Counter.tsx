@@ -5,11 +5,15 @@ type CounterProps = {
     initialValue: number;
 }
 
+
+
+
 // <Counter initialValue={5}/>
 function Counter(props: CounterProps){
 
     //let counter = props.initialValue;
    const [counter, setCounter] = useState(props.initialValue);
+   
 
     useEffect(() => {
         console.log("counter updated", counter);
@@ -29,7 +33,7 @@ function Counter(props: CounterProps){
 
         setCounter(prevCounter => prevCounter + 1);
         setCounter(prevCounter => prevCounter + 1);    
-        //console.log("counter", counter);
+        console.log("counter", counter);
     }
     function decr(){
         setCounter(counter - 1);
