@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 import Counter from './components/Counter';
+import Login from './components/Login';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Counter initialValue={5} />} />
             <Route path='/products' element={<div>Products</div>} />
-            <Route path='/login' element={<div>Login</div>} />
+            <Route path='/login' element={<Login/>} />
             <Route path='/search' element={<div>Search</div>} />
           </Routes>
 

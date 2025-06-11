@@ -92,6 +92,29 @@ useEffect(effects)
 		- Remove listeners to events on the window or document and DOM objects
 		- Any cleanup code
 		
+forms
+	- controlled input
+		- Reactive, better user-experience
+		- associate a state with each input field, 
+		- onChange eventhandler, value property
+		
+	- uncontrolled input
+		- Non-reactive, faster
+		
+		
+Http calls from the browswer
+	- XMLHttpRequest(low-level)
+	- fetch (HTML 5)- high-level
+	
+	
+	http status
+		- 100 (information)
+		- 200 (success)
+		- 300 (redirect)
+		
+		- 400 (client error)
+		- 500 (server error)
+		
 
 	
 	
