@@ -1,11 +1,24 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
+    //let loginAttemptNo = 0;
+    const loginAttemptNo = useRef(0);
+    const usernameRef = useRef<HTMLInputElement>(null);
+
+    
+
+    useEffect(() => {
+
+        usernameRef.current?.focus();
+    
+    }, [])
 
     function handleInput(evt: ChangeEvent<HTMLInputElement>){
 
@@ -15,23 +28,40 @@ function Login(){
         setUsername(evt.target.value);
     }
 
-    function handleSubmit(evt: FormEvent<HTMLFormElement>){
+    async function handleSubmit(evt: FormEvent<HTMLFormElement>){
         evt.preventDefault();
 
         if(username && password){
-            setMessage("");
+            
             // submit to the server
 
             const url = "http://localhost:9000/login";
             //
-            axios
-                .post(url, {name: username, password})
-                .then((response) => {console.log("success", response)})
-                .catch(errResponse => {console.log("failed", errResponse)})
+            // axios
+            //     .post(url, {name: username, password})
+            //     .then((response) => {console.log("success", response)})
+            //     .catch(errResponse => {console.log("failed", errResponse)})
+            try {
+                
+                const response = await axios.post(url, {name: username, password});
+                //promise is resolved
+                console.log("success", response);
+                setMessage("");
+                navigate("/products")
 
+            } catch (errResponse) {
+                
+                console.log("failed", errResponse);
+                setMessage("Invalid Credentials");
+                loginAttemptNo.current++;
+                console.log("loginAttemptNo", loginAttemptNo.current);
+                if(loginAttemptNo.current >= 3){
+                    setMessage("You are exceeding your attempts.");
+                }
+
+            }
 
             console.log("testing...");
-
         }
         else{
             
@@ -49,7 +79,8 @@ function Login(){
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">User Name</label>
-                    <input type="text" id="username" className="form-control" value={username} onChange={handleInput}/>
+                    <input type="text" id="username" className="form-control" 
+                            value={username} onChange={handleInput} ref={usernameRef}/>
                 </div>
 
                 <div className="form-group">

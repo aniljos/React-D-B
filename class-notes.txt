@@ -116,7 +116,20 @@ Http calls from the browswer
 		- 500 (server error)
 		
 
+Promise
+	- proxy object
+	- are either resolved or rejected
+	- .then method => successCallback, errorCallback
+	- .catch method => errorCallback
 	
-	
+	- async and await(preferred)
+		- will work only with promises
+		- write code asynchronous code with a synchronous behavior
+		
+useRef
+	- create a mutable reference
+	- the value is retained across mutiple renders
+	- will not trigger a component re-render
+	- Used to store a handle of a DOM(HTML) element.
 
    
