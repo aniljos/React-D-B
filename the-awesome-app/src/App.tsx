@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 import Counter from './components/Counter';
 import Login from './components/Login';
 import ListProducts from './components/ListProducts';
+import EditProduct from './components/EditProduct';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             <Route path='/products' element={<ListProducts/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/search' element={<div>Search</div>} />
+             <Route path='/products/:id' element={<EditProduct/>} />
           </Routes>
 
         </main>

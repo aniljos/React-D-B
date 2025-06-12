@@ -51,6 +51,7 @@ JSX
 		- const jsx = (<p> Hello </p>)
 	- <> </> = React Fragment(typically used for a root element in JSX)
 	- Conditional rendering: use the ternary operator
+	- Iterate over an array/collection: use the map method
 	
 props
 	- The component author defines the props to the component.
@@ -62,6 +63,7 @@ props
 state
    - useState
    - state must be treated as immutable
+			- create a copy, change the copy and update the state with the copy.
    - state changes will a re-render
    - state change is asynchronous.
    - setState overloads
@@ -131,5 +133,18 @@ useRef
 	- the value is retained across mutiple renders
 	- will not trigger a component re-render
 	- Used to store a handle of a DOM(HTML) element.
+	
+CSS
+	- define a local css
+	- style attribute(inline style) or class attribute
+	
+	
+Exercise:
+	Create new route /customers
+	Add a component: ListCustomers - lined to the route /customers
+	Display all customers form api GET(http://localhost:9000/customers)
+	Use HTML table.
+	Create a model for customer
+	
 
    
