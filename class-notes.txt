@@ -147,5 +147,32 @@ Exercise:
 	Use HTML table.
 	Create a model for customer
 	
+Session State
+	- Browser
+		- localStorage - persistant
+		- sessionStorage - session
+		- Cookies 
+	- Memory
+		Redux, React Context
+
+Redux
+	-store
+		- one store
+	-reducer
+		- one reducer
+		- designed in a way to have multiple reducers and combine to a single reducer.
+	-actions
+	
+	-react-redux
+		-library intergrate React with redux
+		- Provider component to integrate the redux store to react component tree.
+		- Hooks
+			- useDispatch: return a dispatch function to dispatch as actions
+			- useSelector: select(read) data from the store
+			- useStore: return a handle to the store
+	- redux toolkit
+		-library that provides api and components to work with redux 
+	
+	
 
    
