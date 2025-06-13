@@ -9,6 +9,7 @@ Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 
 Introduction: https://forms.gle/e45YjdSzvZf1ifvV9
+Quiz 1: https://forms.cloud.microsoft/r/4um3PSmZzY
 
 JavaScript
 	- Interpreted: No compilation
