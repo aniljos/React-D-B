@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useEffect, useState, type ChangeEvent } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, type ChangeEvent, type MouseEvent } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../model/Product";
 
 function EditProduct(){
@@ -8,6 +8,7 @@ function EditProduct(){
     const params = useParams();
     const productId = params.id;
     const [product, setProduct] = useState<Product>(new Product(0, "", "", 0, ""));
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -38,6 +39,28 @@ function EditProduct(){
         setProduct({...product, name: evt.target.value});
     }
 
+    function handleCancel(){
+        
+        //navigate("/products");
+        navigate(-1);
+    }
+
+    async function handleSave(evt: MouseEvent<HTMLButtonElement>){
+        evt.preventDefault();
+
+        try {
+            const url = "http://localhost:9000/products/" + productId;
+            await axios.put(url, product);
+            navigate(-1);
+
+        } catch (error) {
+            
+            console.log(error);
+            alert("Failed to save");
+
+        }
+    }
+
     return (
         <div>
             <h4>Edit Product: {productId}</h4>
@@ -63,8 +86,8 @@ function EditProduct(){
                 <br />
 
                 <div>
-                    <button className="btn btn-primary">Save</button>&nbsp;
-                    <button className="btn btn-secondary">Cancel</button>
+                    <button className="btn btn-primary" onClick={handleSave}>Save</button>&nbsp;
+                    <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
                 </div>
 
 
