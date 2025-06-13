@@ -174,5 +174,8 @@ Redux
 		-library that provides api and components to work with redux 
 	
 	
+Endpoints for customers
 
+	GET, POST, PUT, DELETE http://localhost:9000/secure_customers
+	GET, POST, PUT, DELETE http://localhost:9000/customers
    
