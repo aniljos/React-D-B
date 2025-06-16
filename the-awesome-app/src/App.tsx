@@ -3,6 +3,7 @@ import Counter from './components/Counter';
 import Login from './components/Login';
 import ListProducts from './components/ListProducts';
 import EditProduct from './components/EditProduct';
+import TodoList from './components/TodoList';
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/search">Search</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/todo">Todos</Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -34,10 +38,11 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<Counter initialValue={5} />} />
-            <Route path='/products' element={<ListProducts/>} />
-            <Route path='/login' element={<Login/>} />
+            <Route path='/products' element={<ListProducts />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/search' element={<div>Search</div>} />
-             <Route path='/products/:id' element={<EditProduct/>} />
+            <Route path='/products/:id' element={<EditProduct />} />
+            <Route path="/todo" element={<TodoList/>} />
           </Routes>
 
         </main>

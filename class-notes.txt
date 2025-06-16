@@ -98,11 +98,13 @@ useEffect(effects)
 forms
 	- controlled input
 		- Reactive, better user-experience
-		- associate a state with each input field, 
+		- associate a state with each form field, 
 		- onChange eventhandler, value property
 		
 	- uncontrolled input
 		- Non-reactive, faster
+		- get a handle to the form field
+		- useRef hook to get handle to any HTML Element including form fields)
 		
 		
 Http calls from the browswer
@@ -161,7 +163,16 @@ Redux
 	-reducer
 		- one reducer
 		- designed in a way to have multiple reducers and combine to a single reducer.
+		- must be synchronous. Cannot invoke any async calls(api calls)
+		
 	-actions
+	
+	- pattern : action creators
+		- helper method to create an action. Example: createLoginAction(), 
+	
+	- middleware
+		- intercept the action: validate, logging, async 
+		- async middleware library: redux-thunk, redux-saga 
 	
 	-react-redux
 		-library intergrate React with redux
@@ -170,12 +181,20 @@ Redux
 			- useDispatch: return a dispatch function to dispatch as actions
 			- useSelector: select(read) data from the store
 			- useStore: return a handle to the store
+	
 	- redux toolkit
-		-library that provides api and components to work with redux 
+		- library that provides api and components to work with redux 
+		- implemention of the common design patterns that are recommened to the used.
+		- slices: 
+			Allows use to treat state as mutable
+			replace reducers
+		
 	
 	
 Endpoints for customers
 
 	GET, POST, PUT, DELETE http://localhost:9000/secure_customers
 	GET, POST, PUT, DELETE http://localhost:9000/customers
+	
+
    
