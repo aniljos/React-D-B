@@ -1,15 +1,15 @@
+import axios from "axios";
 import type { Todo } from "../model/Todo";
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 export type TodoState = {
-    items : Todo[] //todos
+    items : Todo[], //todos
+    status: 'pending' | 'success' | 'failed'
 }
 
 const initialState:TodoState = {
-    items : [
-        {id: 1, text: "Learn AI", isCompleted: false},
-        {id: 2, text: "Book Air Tickets", isCompleted: false}
-    ]
+    items : [],
+    status: "pending"
 }
 
 //actions
@@ -33,6 +33,25 @@ const initialState:TodoState = {
 //     return state;
 // }
 
+// fetchTodos: action creator for async task
+// todos/fetchTodos => action type
+export const fetchTodos = createAsyncThunk("todos/fetchTodos", async (_, config) => {
+
+    //invoke the api
+    try {
+        
+        const url = "http://localhost:9000/todoItems";
+        const response = await axios.get(url);
+        //action payload
+        return response.data;
+
+    } catch (error) {
+        
+        config.rejectWithValue(error);
+    }
+})
+
+
 const todoSlice = createSlice({
 
     name: "todos",
@@ -49,7 +68,21 @@ const todoSlice = createSlice({
             state.items[index].isCompleted = true;
         }
 
-    }
+    },
+    extraReducers(builder) {
+        
+        builder.addCase(fetchTodos.pending, (state) => {
+            state.status = "pending"
+        });
+        builder.addCase(fetchTodos.rejected, (state) => {
+            state.status = "failed"
+        });
+        builder.addCase(fetchTodos.fulfilled, (state, action) => {
+            state.status = "success";
+            state.items = action.payload;
+        });
+
+    },
 });
 
 //reducer

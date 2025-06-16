@@ -1,21 +1,38 @@
 import { useRef, type FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/todoReducers";
 
 function AddTodo(){
 
     const idFieldRef = useRef<HTMLInputElement>(null);
     const taskFieldRef = useRef<HTMLInputElement>(null);
+    const dispatch = useDispatch();
 
     function handleSubmit(evt: FormEvent<HTMLFormElement>){
 
         evt.preventDefault();
-        
-        const id = idFieldRef.current?.value;
+
+        const id = Number(idFieldRef.current?.value);
         const taskName = taskFieldRef.current?.value;
+        if(id && taskName){
+            const action = addItem({id, text: taskName, isCompleted: false});
+            dispatch(action);
+
+            if(idFieldRef.current){
+                idFieldRef.current.value = "";
+            }
+            if(taskFieldRef.current){
+                taskFieldRef.current.value = "";
+            }
+            
+            
+        }
     }
 
     return (
         <div>
-            <h4>Add Todo Item</h4>
+                
+            <h6>Add Todo Item</h6>
 
             <form onSubmit={handleSubmit}>
 

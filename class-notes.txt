@@ -158,6 +158,7 @@ Session State
 		Redux, React Context
 
 Redux
+	-high-level api
 	-store
 		- one store
 	-reducer
@@ -189,7 +190,18 @@ Redux
 			Allows use to treat state as mutable
 			replace reducers
 		
+React Context
+	- Share data/state across the component tree
+	- low-level api
+	- Multiple context per application
+	- Hooks
+		-useContext: accessing the context
+	- Changing the context and rendering the component(s) is not in-built
 	
+	
+Design guidelines
+	- Smaller components
+		- modularity, easy maintain, testing is easy, better for optimizations
 	
 Endpoints for customers
 

@@ -1,10 +1,24 @@
-import { useSelector } from "react-redux";
-import type { AppState } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { type AppDispatch, type AppState } from "../redux/store";
 import AddTodo from "./AddTodo";
+import { useEffect } from "react";
+import { fetchTodos } from "../redux/todoReducers";
 
 function TodoList(){
 
     const todo = useSelector((state: AppState) => state.todo);
+    const dispatch = useDispatch<AppDispatch>();
+   
+    useEffect(() => {
+
+        // action here is a thunk function
+        if(todo.status === 'pending' || todo.status === 'failed'){
+             const action =  fetchTodos();
+             dispatch(action);
+        }
+       
+
+    }, [])
 
     return (
         <div>
