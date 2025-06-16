@@ -8,6 +8,7 @@ function AddTodo(){
     function handleSubmit(evt: FormEvent<HTMLFormElement>){
 
         evt.preventDefault();
+        
         const id = idFieldRef.current?.value;
         const taskName = taskFieldRef.current?.value;
     }
