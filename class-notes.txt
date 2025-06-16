@@ -208,5 +208,10 @@ Endpoints for customers
 	GET, POST, PUT, DELETE http://localhost:9000/secure_customers
 	GET, POST, PUT, DELETE http://localhost:9000/customers
 	
+Exercise:TodoList.tsx
+		1. In the list(table) display "isCompleted" as a checkbox
+		2. Bind the checkbox to the redux store: tods.items[i].isCompleted. Do it using a controlled input
+		3. When the user checks/uncheck the checkbox the value to be updated in redux.
+	
 
    
