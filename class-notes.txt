@@ -203,9 +203,7 @@ React Context
 		- to implement re-rendering: useState, useReducer
 	
 	
-Design guidelines
-	- Smaller components
-		- modularity, easy maintain, testing is easy, better for optimizations
+
 	
 Endpoints for customers
 
@@ -226,6 +224,25 @@ Hooks(core)
 	- 
 	
 Optimization of Component
-	- React.memo
+	- React.memo => memoize a component
 		-function, higher-order component(HOC)
+	- useCallback => memoize a callback
+	- useMemo => memoize a value(object/number/string/array)
+	
+	- Virtual DOM 
+	
+higher-order component(HOC)
+	- Design pattern
+	- a function that receives a component and returns a new component 
+	- it used to inject behaviors to a existing component.
+	
+Design guidelines
+	- Smaller components
+		- modularity, easy maintain, testing is easy, better for 
+	- Design for reuseablity
+		- component
+		- HOC - class & functional 
+		- Custom hooks - functional
+	
+	
 	

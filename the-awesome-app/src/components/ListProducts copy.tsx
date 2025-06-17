@@ -1,25 +1,50 @@
 import axios from "axios";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Product } from "../model/Product";
 import './ListProducts.css';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { AppState } from "../redux/store";
 import ProductView from "./ProductView";
 import { useTitle } from "../hooks/useTitle";
-import { useProducts } from "../hooks/useProducts";
 
 //const url = "http://localhost:9000/products";
 const url = "http://localhost:9000/secure_products";
 function ListProducts() {
 
-    const {products, setProducts, auth} = useProducts(url);
+
+    const [products, setProducts] = useState<Product[]>([]);
     const [isMessageVisible, setVisible] = useState(false);
-    
+    const auth = useSelector((state: AppState) => state.auth);
     useTitle("Products");
 
-   
+    useEffect(() => {
+
+        fetchProducts();
+
+    }, [])
     const navigate = useNavigate()
 
-    
+    async function fetchProducts() {
+
+        try {
+
+            if(!auth.isAuthenticated){
+                navigate("/login");
+                return;
+            }
+
+            const headers = {"Authorization": `Bearer ${auth.accessToken}`};
+            const response = await axios.get<Product []>(url, {headers});
+            console.log("products", response.data);
+            setProducts(response.data);
+
+
+        } catch (error) {
+
+            console.log("failed to fetch products", error);
+        }
+    }
 
     const handleDelete = useCallback( async (product: Product) => {
 

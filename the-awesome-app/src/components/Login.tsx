@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "r
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTitle } from "../hooks/useTitle";
 
 function Login() {
 
@@ -13,8 +14,10 @@ function Login() {
     const loginAttemptNo = useRef(0);
     const usernameRef = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
+    useTitle("Login");
+    
 
-
+  
 
     useEffect(() => {
 

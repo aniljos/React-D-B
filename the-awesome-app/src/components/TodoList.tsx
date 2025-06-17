@@ -4,11 +4,14 @@ import AddTodo from "./AddTodo";
 import { useEffect, type ChangeEvent } from "react";
 import { fetchTodos, setCompleted } from "../redux/todoReducers";
 import type { Todo } from "../model/Todo";
+import { useTitle } from "../hooks/useTitle";
+import { withBorder } from "../hoc/withBorder";
 
 function TodoList(){
 
     const todo = useSelector((state: AppState) => state.todo);
     const dispatch = useDispatch<AppDispatch>();
+    useTitle("Todo");
    
     useEffect(() => {
 
@@ -58,4 +61,4 @@ function TodoList(){
     )
 
 }
-export default TodoList;
+export default withBorder(TodoList);
