@@ -8,7 +8,7 @@ function AppBar() {
     const mode = themeContext.mode;
 
     function changeTheme(){
-        themeContext.mode = themeContext.mode === 'dark' ? 'light' : 'dark';
+        themeContext.changeMode(themeContext.mode === 'dark' ? 'light' : 'dark');
         console.log("mode", themeContext.mode);
     }
 

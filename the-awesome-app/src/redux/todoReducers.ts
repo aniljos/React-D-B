@@ -62,10 +62,10 @@ const todoSlice = createSlice({
 
             state.items.push(action.payload);
         },
-        setCompleted: (state, action: PayloadAction<number>)=> {
+        setCompleted: (state, action: PayloadAction<Todo>)=> {
 
-            const index = state.items.findIndex(item => item.id === action.payload);
-            state.items[index].isCompleted = true;
+            const index = state.items.findIndex(item => item.id === action.payload.id);
+            state.items[index].isCompleted = action.payload.isCompleted;
         }
 
     },

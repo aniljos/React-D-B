@@ -4,14 +4,16 @@ import './index.css'
 import App from './App.tsx';
 import { Provider } from 'react-redux';
 import { store } from './redux/store.ts';
-import { AppThemeContext } from './context/AppThemeContext.tsx';
+import { AppThemeContextProvider } from './context/AppThemeContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
-   <StrictMode>
+   // <StrictMode>
       <Provider store={store}>
-         <AppThemeContext.Provider value={{mode: 'light'}}>
-            <App />
-         </AppThemeContext.Provider>
+         {/* <AppThemeContext.Provider value={{mode: 'light'}}> */}
+            <AppThemeContextProvider>
+               <App />
+            </AppThemeContextProvider>
+         {/* </AppThemeContext.Provider> */}
       </Provider>
-   </StrictMode>,
+   // </StrictMode>,
 )

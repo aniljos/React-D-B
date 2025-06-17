@@ -5,12 +5,14 @@ import './ListProducts.css';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { AppState } from "../redux/store";
+import ProductView from "./ProductView";
 
 //const url = "http://localhost:9000/products";
 const url = "http://localhost:9000/secure_products";
 function ListProducts() {
 
     const [products, setProducts] = useState<Product[]>([]);
+    const [isMessageVisible, setVisible] = useState(false);
     const auth = useSelector((state: AppState) => state.auth);
 
     useEffect(() => {
@@ -46,7 +48,8 @@ function ListProducts() {
         const deleteUrl = url + "/" + product.id;
         try {
           
-            await axios.delete(deleteUrl);
+            const headers = {"Authorization": `Bearer ${auth.accessToken}`};
+            await axios.delete(deleteUrl, {headers});
             //fetchProducts();
             // copy of products
             const copy_of_products = [...products];
@@ -75,21 +78,14 @@ function ListProducts() {
         <div>
             <h3>List Products</h3>
 
+            {isMessageVisible ? <div className="alert alert-info">React page to demonstrate data-driven application</div> : null}
+            <button className="btn btn-info" onClick={() => setVisible(pValue => !pValue)}> {isMessageVisible? 'Hide' : 'Show'}</button>
+
             <div style={{display: "flex", flexFlow: 'row wrap', justifyContent: 'center'}}>
                 {products.map(product => {
 
                     return (
-                        <div key={product.id} className="product">
-                            <p>Id: {product.id}</p>
-                            <p>{product.name}</p>
-                            <p>{product.description}</p>
-                            <p>Price: {product.price}</p>
-
-                            <div>
-                                <button className="btn btn-danger" onClick={() => {handleDelete(product)}}>Delete</button>&nbsp;
-                                <button className="btn btn-info" onClick={() => handleEdit(product)}>Edit</button>
-                            </div>
-                        </div>
+                       <ProductView key={product.id} product={product} onDelete={handleDelete} onEdit={handleEdit}/>
                     )
 
                 })}

@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { type AppDispatch, type AppState } from "../redux/store";
 import AddTodo from "./AddTodo";
-import { useEffect } from "react";
-import { fetchTodos } from "../redux/todoReducers";
+import { useEffect, type ChangeEvent } from "react";
+import { fetchTodos, setCompleted } from "../redux/todoReducers";
+import type { Todo } from "../model/Todo";
 
 function TodoList(){
 
@@ -19,6 +20,11 @@ function TodoList(){
        
 
     }, [])
+
+    function handleCompleted(evt: ChangeEvent<HTMLInputElement>, todo: Todo){
+        const action = setCompleted({...todo, isCompleted: evt.target.checked});
+        dispatch(action);
+    }
 
     return (
         <div>
@@ -42,7 +48,7 @@ function TodoList(){
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.text}</td>
-                                <td>{"" + item.isCompleted}</td>
+                                <td><input type="checkbox" checked={item.isCompleted} onChange={e => handleCompleted(e, item)}/></td>
                             </tr>
                         )
                     })}

@@ -10,6 +10,7 @@ Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 Introduction: https://forms.gle/e45YjdSzvZf1ifvV9
 Quiz 1: https://forms.cloud.microsoft/r/4um3PSmZzY
+Quiz 2: https://forms.cloud.microsoft/r/S9Ebf6WL0e
 
 JavaScript
 	- Interpreted: No compilation
@@ -60,6 +61,8 @@ props
 	- props is used to pass data from a parent to a child component and vice-verse
 	- Changes to props will re-render the component.
 	- props is always read-only in the child component
+	- <Message text="abc" />  => props.text 
+	- <Message> <p>test</p> </Message> => props.children
 	
 state
    - useState
@@ -195,8 +198,9 @@ React Context
 	- low-level api
 	- Multiple context per application
 	- Hooks
-		-useContext: accessing the context
+		- useContext: accessing the context
 	- Changing the context and rendering the component(s) is not in-built
+		- to implement re-rendering: useState, useReducer
 	
 	
 Design guidelines
@@ -213,5 +217,15 @@ Exercise:TodoList.tsx
 		2. Bind the checkbox to the redux store: tods.items[i].isCompleted. Do it using a controlled input
 		3. When the user checks/uncheck the checkbox the value to be updated in redux.
 	
-
-   
+Hooks(core)
+	- useEffect
+	- useState
+	- useRef
+	- useContext
+	- useReducer => like the useState, but to change the state dispatch an action
+	- 
+	
+Optimization of Component
+	- React.memo
+		-function, higher-order component(HOC)
+	
