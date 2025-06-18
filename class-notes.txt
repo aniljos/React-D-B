@@ -255,4 +255,19 @@ Next.js project
 			- application layout
 		- page.tsx(default page)
 			- root route (http://localhost:3000/)
-	
+	- App Router
+		- File-based routing
+		- Support Client and Server components
+		- Default is always a server component.
+		- 'use client' directive to mark a component as a Client component
+		
+React Server Components: SSR, SSG, ISR
+	- SSR
+		- component receives props
+		- component is reading request headers/cookies
+		- disable caching( fetch api's)
+		- enable SSR explicitily: export const dynamic = 'force-dynamic'
+	- SSG
+		- no dynamic behavior in the component
+	- ISR	
+		- Is SSG with revalidate property
