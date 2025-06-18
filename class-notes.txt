@@ -228,8 +228,13 @@ Optimization of Component
 		-function, higher-order component(HOC)
 	- useCallback => memoize a callback
 	- useMemo => memoize a value(object/number/string/array)
-	
+	- Code spliting
 	- Virtual DOM 
+	
+Micro Front-ends
+	- Webpack Federation
+	- Vite MFE
+	
 	
 higher-order component(HOC)
 	- Design pattern
@@ -238,11 +243,16 @@ higher-order component(HOC)
 	
 Design guidelines
 	- Smaller components
-		- modularity, easy maintain, testing is easy, better for 
+		- modularity, easy maintain, testing is easy, better for optimizations
 	- Design for reuseablity
 		- component
 		- HOC - class & functional 
 		- Custom hooks - functional
 	
-	
+Next.js project
+	- app folder
+		- layout.tsx => main/root component
+			- application layout
+		- page.tsx(default page)
+			- root route (http://localhost:3000/)
 	
