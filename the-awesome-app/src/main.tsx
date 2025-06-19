@@ -7,7 +7,7 @@ import { store } from './redux/store.ts';
 import { AppThemeContextProvider } from './context/AppThemeContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
-   // <StrictMode>
+    <StrictMode>
       <Provider store={store}>
          {/* <AppThemeContext.Provider value={{mode: 'light'}}> */}
             <AppThemeContextProvider>
@@ -15,5 +15,5 @@ createRoot(document.getElementById('root')!).render(
             </AppThemeContextProvider>
          {/* </AppThemeContext.Provider> */}
       </Provider>
-   // </StrictMode>,
+    </StrictMode>,
 )

@@ -1,4 +1,7 @@
 export default function AboutPage(){
+
+   // throw new Error("error for testing");
+
     return (
         <div>
             <h3>About</h3>
