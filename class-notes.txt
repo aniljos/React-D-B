@@ -275,7 +275,7 @@ React Server Components: SSR, SSG, ISR
 API's(Http endpoints) -> Nodejs(JavaScript)
 	- Http package
 	- Node Express - Web application
-	- Next.js - 
+	- Next.js - Full stack; React FE and a Nodejs BE
 	
 Database
 	- MySQL, Oracle, MongoDB
