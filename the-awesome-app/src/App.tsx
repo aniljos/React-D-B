@@ -16,6 +16,7 @@ function App() {
 
   return (
 
+    // <Router basename='/awesome/'>
     <Router>
       <div className="container-fluid">
 

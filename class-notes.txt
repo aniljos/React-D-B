@@ -285,3 +285,20 @@ Database
 	- MySQL, Oracle, MongoDB
 	- SQLLite(Embedded)
 	
+	
+- ChatGPT
+	- Generating a component(code, css/styling)
+	- Debugging or fix errors
+- Github co-pilot
+	- integrates to the IDE
+	- Generating a component(code, css/styling)
+	- Debugging or fix errors
+
+- Figma to react
+	- Convert Figma to react component
+	
+- Builder.io
+
+
+	
+	
