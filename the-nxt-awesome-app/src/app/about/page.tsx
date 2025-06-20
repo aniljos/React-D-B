@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Next React About",
+};
+
+
 export default function AboutPage(){
 
    // throw new Error("error for testing");

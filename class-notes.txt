@@ -273,6 +273,9 @@ React Server Components: SSR, SSG, ISR
 	- ISR	
 		- Is SSG with revalidate property
 		
+    - SEO(Search Engine Optimization)
+		- use the metadata to define/describe the page
+		
 API's(Http endpoints) -> Nodejs(JavaScript)
 	- Http package
 	- Node Express - Web application

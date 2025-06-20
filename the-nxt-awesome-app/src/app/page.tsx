@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <h3>Welcome to Next.js</h3>
 
-      <Counter initialValue={10}/>
+      <Counter initialValue={4}/>
     </div>
   );
 }

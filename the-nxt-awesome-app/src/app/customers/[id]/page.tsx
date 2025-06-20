@@ -1,15 +1,31 @@
 import { Customer } from "@/model/Customer";
+import { Metadata } from "next";
 import Link from "next/link"
 
 type CustomerPageProps = {
-    params: Promise<{id: number}>
+    params: Promise<{ id: number }>
 }
 
-export default async function CustomerPage(props: CustomerPageProps){
+// export const metadata: Metadata = {
+//   title: "Next React Customer ",
+// };
+
+export async function generateMetadata(props: CustomerPageProps): Promise<Metadata> {
 
     const params = await props.params;
     const url = "http://localhost:9000/customers/" + params.id;
-    const response = await fetch(url, {method: "GET"});
+    const response = await fetch(url, { method: "GET" });
+    const customer = await response.json() as Customer;
+    return {
+        title: "Next React Customer " + customer.name
+    }
+}
+
+export default async function CustomerPage(props: CustomerPageProps) {
+
+    const params = await props.params;
+    const url = "http://localhost:9000/customers/" + params.id;
+    const response = await fetch(url, { method: "GET" });
     const customer = await response.json() as Customer;
 
     return (

@@ -1,7 +1,13 @@
 import { Customer } from "@/model/Customer";
+import { Metadata } from "next";
 //import axios from "axios";
 import Link from "next/link";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Next React Customer",
+  
+};
 
 export default async function CustomerPage(){
 
@@ -20,6 +26,8 @@ export default async function CustomerPage(){
         </div>
     )
 }
+
+
 
 
 
